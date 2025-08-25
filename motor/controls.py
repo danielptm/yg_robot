@@ -33,7 +33,12 @@ class Controls:
         time.sleep(1)
 
     def hard_right_90(self):
+        self.kit.motor1.throttle = 1
+        self.kit.motor2.throttle = -1
+        time.sleep(1.5)
+
+    def hard_left_90(self):
         self.kit.motor1.throttle = -1
         self.kit.motor2.throttle = 1
-        time.sleep(1)
+        time.sleep(1.5)
 
