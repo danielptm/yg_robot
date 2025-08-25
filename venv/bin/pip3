@@ -1,4 +1,4 @@
-#!/Users/danieltuttle/projects/tomauto/yardguard_v1/venv/bin/python3
+#!/home/dpt/yg_robot/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
