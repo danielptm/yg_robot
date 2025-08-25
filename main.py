@@ -4,8 +4,8 @@ from motor.controls import Controls
 
 controls = Controls()
 
-controls.forward()
+controls.forward(None)
 controls.stop()
-controls.backward()
+controls.backward(None)
 controls.stop()
 controls.hard_right_90()
