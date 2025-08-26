@@ -4,6 +4,13 @@ from pubsub import pub
 
 print("Starting user input mode...")
 
+def stop():
+    controls.stop_motor()
+    pub.unsubscribe(controls.listener, 'motor_topic')
+    controls.join()
+
+
+
 controls: Controls = None
 
 prev = ''
@@ -14,13 +21,19 @@ while char != 'c':
     if char != prev:
         if controls is not None:
             if controls.is_alive():
-                controls.join()
+                stop()
+    print("creating controls")
     controls = Controls()
+    print("starting")
     controls.start()
+    print("subscribing")
     pub.subscribe(controls.listener, "motor_topic")
+    print("send message")
     pub.sendMessage("motor_topic", arg1=char, arg2=None)
+    print("set prev to char")
     prev = char
+    print("end of loops")
 
-controls.stop_motor()
-pub.unsubscribe(controls.listener, 'motor_topic')
+stop()
+
 
