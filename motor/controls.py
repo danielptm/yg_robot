@@ -8,6 +8,7 @@ class Controls(threading.Thread):
     kit = MotorKit()
 
     def __init__(self):
+        super().__init__()
         self.name = "motor"
 
     char = "s"
