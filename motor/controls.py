@@ -2,6 +2,7 @@
 from adafruit_motorkit import MotorKit
 import time
 import threading
+from pubsub import pub
 
 
 class Controls(threading.Thread):
@@ -14,6 +15,11 @@ class Controls(threading.Thread):
     def listener(self, arg1, arg2):
         self.call(arg1)
 
+    def pub(self, arg1):
+        print("subscribing")
+        pub.subscribe(self.listener, "motor_topic")
+        print("send message")
+        pub.sendMessage("motor_topic", arg1=arg1, arg2=None)
 
     def call(self, char):
         if char == 'f':
