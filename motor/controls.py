@@ -4,11 +4,11 @@ import time
 import threading
 
 
-class Controls():
+class Controls(threading.Thread):
     kit = MotorKit()
-    name = ""
 
     def __init__(self):
+        threading.Thread.__init__(self)
         self.name = "motor"
 
     def listener(self, arg1, arg2):
