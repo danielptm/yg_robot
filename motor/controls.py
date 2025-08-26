@@ -16,7 +16,6 @@ class Controls(threading.Thread):
 
     def run(self):
         while self.keep_going:
-            print("hey")
             time.sleep(1)
             self.call()
 
@@ -46,51 +45,38 @@ class Controls(threading.Thread):
         if duration is None:
             self.kit.motor1.throttle = -1
             self.kit.motor2.throttle = -1
-            time.sleep(1.5)
         else:
             self.kit.motor1.throttle = -1
             self.kit.motor2.throttle = -1
-            time.sleep(duration)
 
     def backward(self, duration: int):
         if duration is None:
             self.kit.motor1.throttle = 1
             self.kit.motor2.throttle = 1
-            time.sleep(1.5)
         else:
             self.kit.motor1.throttle = 1
             self.kit.motor2.throttle = 1
-            time.sleep(duration)
 
     def stop_motor(self):
         self.kit.motor1.throttle = 0
         self.kit.motor2.throttle = 0
-        time.sleep(1)
 
     def hard_right_90(self):
         self.kit.motor1.throttle = 1
         self.kit.motor2.throttle = -1
-        time.sleep(0.9)
-        self.stop()
 
     def hard_left_90(self):
         self.kit.motor1.throttle = -1
         self.kit.motor2.throttle = 1
-        time.sleep(0.9)
-        self.stop()
 
     def soft_right(self):
         self.kit.motor1.throttle = 0.5
         self.kit.motor2.throttle = -0.75
-        time.sleep(1)
-        self.stop()
 
 
     def soft_left(self):
         self.kit.motor1.throttle = -0.75
         self.kit.motor2.throttle = 0.5
-        time.sleep(1)
-        self.stop()
 
 
 
