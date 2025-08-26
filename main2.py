@@ -6,7 +6,8 @@ print("Starting user input mode...")
 
 controls: Controls = None
 
-prev = 'prev'
+prev = 's'
+char = ''
 while char != 'c':
     print("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
     char = input("Input: ")
