@@ -1,4 +1,3 @@
-from select import kevent
 
 from adafruit_motorkit import MotorKit
 import time
