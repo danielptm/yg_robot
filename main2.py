@@ -15,6 +15,10 @@ while char != 'c':
         controls.hard_right_90()
     if char == "l":
         controls.hard_left_90()
+    if char == "sl":
+        controls.soft_left()
+    if char == "sr":
+        controls.soft_right()
     else:
         controls.stop()
 
