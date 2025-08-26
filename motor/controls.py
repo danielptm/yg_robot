@@ -47,11 +47,11 @@ class Controls:
     def soft_right(self):
         self.kit.motor1.throttle = 0.5
         self.kit.motor2.throttle = -0.5
-        time.sleep(0.1)
+        time.sleep(1)
 
     def soft_left(self):
         self.kit.motor1.throttle = -0.5
         self.kit.motor2.throttle = 0.5
-        time.sleep(0.1)
+        time.sleep(1)
 
 
