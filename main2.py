@@ -5,7 +5,8 @@ from motor.controls import Controls
 controls = Controls()
 char = ''
 while char != 'c':
-    char = input("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
+    print("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
+    char = input("Input: ")
     if char == 'f':
         controls.forward(None)
     if char == 'b':
