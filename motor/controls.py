@@ -20,7 +20,7 @@ class Controls:
     def backward(self, duration: int):
         if duration is None:
             self.kit.motor1.throttle = 1
-            self.kit.motor2.throttle = -1
+            self.kit.motor2.throttle = 1
             time.sleep(1)
         else:
             self.kit.motor1.throttle = 1
