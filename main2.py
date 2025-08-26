@@ -1,4 +1,3 @@
-from motor.controls import Controls
 
 print("Starting user input mode...")
 from motor.controls import Controls
