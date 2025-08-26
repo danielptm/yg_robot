@@ -28,19 +28,19 @@ class Controls(threading.Thread):
 
     def call(self):
         if self.char == 'f':
-            self.controls.forward(None)
+            self.forward(None)
         if self.char == 'b':
-            self.controls.backward(None)
+            self.backward(None)
         if self.char == 'r':
-            self.controls.hard_right_90()
+            self.hard_right_90()
         if self.char == "l":
-            self.controls.hard_left_90()
+            self.hard_left_90()
         if self.char == "sl":
-            self.controls.soft_left()
+            self.soft_left()
         if self.char == "sr":
-            self.controls.soft_right()
+            self.soft_right()
         else:
-            self.controls.stop_motor()
+            self.stop_motor()
 
     def forward(self, duration: int):
         if duration is None:
