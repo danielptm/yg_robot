@@ -11,7 +11,7 @@ class Controls():
     def __init__(self):
         self.name = "motor"
 
-    def listener(self, arg1):
+    def listener(self, arg1, arg2):
         self.call(arg1)
 
 
