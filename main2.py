@@ -9,9 +9,9 @@ char = input("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program
 while char != 'c':
     char = input("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
     if char == 'f':
-        controls.forward()
+        controls.forward(None)
     if char == 'b':
-        controls.backward()
+        controls.backward(None)
     if char == 'r':
         controls.hard_right_90()
     if char == "l":
