@@ -4,39 +4,29 @@ import time
 import threading
 
 
-class Controls(threading.Thread):
+class Controls():
     kit = MotorKit()
+    name = ""
 
     def __init__(self):
-        super().__init__()
         self.name = "motor"
 
-    char = "s"
-    keep_going = True
+    def listener(self, arg1):
+        self.call(arg1)
 
-    def run(self):
-        while self.keep_going:
-            self.call()
 
-    def stop_thread(self):
-        self.keep_going = False
-
-    def setChar(self, char):
-        if (char != self.char):
-            self.char = char
-
-    def call(self):
-        if self.char == 'f':
+    def call(self, char):
+        if char == 'f':
             self.forward(None)
-        if self.char == 'b':
+        if char == 'b':
             self.backward(None)
-        if self.char == 'r':
+        if char == 'r':
             self.hard_right_90()
-        if self.char == "l":
+        if char == "l":
             self.hard_left_90()
-        if self.char == "sl":
+        if char == "sl":
             self.soft_left()
-        if self.char == "sr":
+        if char == "sr":
             self.soft_right()
         else:
             self.stop_motor()

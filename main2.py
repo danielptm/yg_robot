@@ -1,16 +1,18 @@
 
 from motor.controls import Controls
+from pubsub import pub
 
 print("Starting user input mode...")
 
 controls = Controls()
-controls.start()
+pub.subscribe(controls.listener, "motor_topic")
+
 char = ''
 while char != 'c':
     print("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
     char = input("Input: ")
-    controls.setChar(char)
+    pub.sendMessage("motor_topic", arg1=char)
 
-controls.join()
 controls.stop_motor()
-controls.stop_thread()
+pub.unsubscribe(controls.listener, 'motor_topic')
+
