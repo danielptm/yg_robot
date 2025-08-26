@@ -23,7 +23,8 @@ class Controls(threading.Thread):
         self.keep_going = False
 
     def setChar(self, char):
-        self.char = char
+        if (char != self.char):
+            self.char = char
 
     def call(self):
         if self.char == 'f':
