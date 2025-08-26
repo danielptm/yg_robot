@@ -1,11 +1,46 @@
+from select import kevent
+
 from adafruit_motorkit import MotorKit
 import time
+import threading
 
-class Controls:
+
+class Controls(threading.Thread):
     kit = MotorKit()
 
     def __init__(self):
-        pass
+        self.name = "motor"
+
+    char = "s"
+    keep_going = True
+
+    def run(self):
+        while self.keep_going:
+            print("hey")
+            time.sleep(1)
+            self.call()
+
+    def stop_thread(self):
+        self.keep_going = False
+
+    def setChar(self, char):
+        self.char = char
+
+    def call(self):
+        if self.char == 'f':
+            self.controls.forward(None)
+        if self.char == 'b':
+            self.controls.backward(None)
+        if self.char == 'r':
+            self.controls.hard_right_90()
+        if self.char == "l":
+            self.controls.hard_left_90()
+        if self.char == "sl":
+            self.controls.soft_left()
+        if self.char == "sr":
+            self.controls.soft_right()
+        else:
+            self.controls.stop_motor()
 
     def forward(self, duration: int):
         if duration is None:
@@ -27,7 +62,7 @@ class Controls:
             self.kit.motor2.throttle = 1
             time.sleep(duration)
 
-    def stop(self):
+    def stop_motor(self):
         self.kit.motor1.throttle = 0
         self.kit.motor2.throttle = 0
         time.sleep(1)
