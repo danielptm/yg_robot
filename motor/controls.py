@@ -16,7 +16,6 @@ class Controls(threading.Thread):
 
     def run(self):
         while self.keep_going:
-            time.sleep(1/60)
             self.call()
 
     def stop_thread(self):
