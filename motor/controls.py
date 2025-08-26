@@ -11,7 +11,7 @@ class Controls:
         if duration is None:
             self.kit.motor1.throttle = -1
             self.kit.motor2.throttle = -1
-            time.sleep(1)
+            time.sleep(1.5)
         else:
             self.kit.motor1.throttle = -1
             self.kit.motor2.throttle = -1
@@ -21,7 +21,7 @@ class Controls:
         if duration is None:
             self.kit.motor1.throttle = 1
             self.kit.motor2.throttle = 1
-            time.sleep(1)
+            time.sleep(1.5)
         else:
             self.kit.motor1.throttle = 1
             self.kit.motor2.throttle = 1
