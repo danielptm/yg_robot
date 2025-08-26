@@ -16,7 +16,9 @@ class Controls(threading.Thread):
 
 
     def call(self, char):
+        self.join()
         if char == 'f':
+            self.start()
             self.forward(None)
         if char == 'b':
             self.backward(None)

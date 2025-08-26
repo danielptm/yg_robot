@@ -5,7 +5,6 @@ from pubsub import pub
 print("Starting user input mode...")
 
 controls = Controls()
-controls.start()
 pub.subscribe(controls.listener, "motor_topic")
 
 char = ''
