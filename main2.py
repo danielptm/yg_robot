@@ -11,6 +11,7 @@ while char != 'c':
     char = input("Input: ")
     controls = Controls()
     if controls.is_alive():
+        controls.stop_motor()
         controls.join()
     controls.start()
     pub.subscribe(controls.listener, "motor_topic")
