@@ -45,7 +45,7 @@ class Controls:
         self.stop()
 
     def soft_right(self):
-        self.kit.motor1.throttle = 0.35
+        self.kit.motor1.throttle = 0.5
         self.kit.motor2.throttle = -0.75
         time.sleep(1)
         self.stop()
@@ -53,7 +53,7 @@ class Controls:
 
     def soft_left(self):
         self.kit.motor1.throttle = -0.75
-        self.kit.motor2.throttle = 0.35
+        self.kit.motor2.throttle = 0.5
         time.sleep(1)
         self.stop()
 
