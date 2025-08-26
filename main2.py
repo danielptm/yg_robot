@@ -9,4 +9,5 @@ while char != 'c':
     char = input("Input: ")
     controls.setChar(char)
 
-controls.stop()
+controls.stop_motor()
+controls.stop_thread()
