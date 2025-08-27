@@ -3,10 +3,7 @@ from motor.controls import Controls
 
 def stop():
     controls.stop_motor()
-    pub.unsubscribe(controls.listener, 'motor_topic')
     controls.join()
-
-
 
 controls: Controls = None
 
