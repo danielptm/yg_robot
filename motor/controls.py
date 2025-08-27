@@ -35,10 +35,11 @@ class Controls:
         if char == "sr":
             self.soft_right()
         else:
+            self.keep_going = False
             self.stop_motor()
 
     def forward(self, duration: int):
-        while(self.keep_going):
+        while self.keep_going:
             self.kit.motor1.throttle = -1
             self.kit.motor2.throttle = -1
 
