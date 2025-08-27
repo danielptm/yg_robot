@@ -1,6 +1,5 @@
 
 from motor.controls import Controls
-from pubsub import pub
 
 def stop():
     controls.stop_motor()
@@ -24,12 +23,7 @@ while char != 'c':
         print("stopping")
         controls.stop()
     print("creating controls")
-    controls = Controls()
-
-    print("subscribing")
-    pub.subscribe(controls.listener, "motor_topic")
-    print("send message")
-    pub.sendMessage("motor_topic", data=char)
+    controls = Controls(char)
     print("set prev to char")
     prev = char
     print("end of loops")

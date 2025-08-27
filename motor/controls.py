@@ -1,6 +1,5 @@
 
 from adafruit_motorkit import MotorKit
-import time
 import threading
 
 
@@ -8,11 +7,12 @@ class Controls:
     kit = MotorKit()
     thread = None
     keep_going = True
-    def __init__(self):
+    def __init__(self, char):
         self.name = "motor"
+        self.char = char
 
-    def listener(self, data):
-        self.thread = threading.Thread(target=self.call, args=data)
+    def start_motor(self):
+        self.thread = threading.Thread(target=self.call, args=self.char)
         self.thread.start()
 
     def stop(self):
@@ -43,31 +43,23 @@ class Controls:
 
     def backward(self, duration: int):
         while self.keep_going:
-            self.kit.motor1.throttle = 1
-            self.kit.motor2.throttle = 1
+            self.kit.motor1.throttle = 0.5
+            self.kit.motor2.throttle = 0.5
 
     def stop_motor(self):
         self.kit.motor1.throttle = 0
         self.kit.motor2.throttle = 0
 
-    def hard_right_90(self):
-        while self.keep_going:
-            self.kit.motor1.throttle = 1
-            self.kit.motor2.throttle = -1
-
-    def hard_left_90(self):
-        while self.keep_going:
-            self.kit.motor1.throttle = -1
-            self.kit.motor2.throttle = 1
-
-    def soft_right(self):
+    def right(self):
         while self.keep_going:
             self.kit.motor1.throttle = 0.5
-            self.kit.motor2.throttle = -0.75
+            self.kit.motor2.throttle = -0.5
 
-    def soft_left(self):
+    def left(self):
         while self.keep_going:
-            self.kit.motor1.throttle = -0.75
+            self.kit.motor1.throttle = -0.5
             self.kit.motor2.throttle = 0.5
+
+
 
 
