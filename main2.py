@@ -2,8 +2,6 @@
 from motor.controls import Controls
 from pubsub import pub
 
-print("Starting user input mode...")
-
 def stop():
     controls.stop_motor()
     pub.unsubscribe(controls.listener, 'motor_topic')
@@ -16,7 +14,10 @@ controls: Controls = None
 prev = ''
 char = ''
 while char != 'c':
+    print("starting..")
     print("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
+    print("prev: " + prev)
+    print("char: " + char)
     char = input("Input: ")
     if char != prev:
         if controls is not None:
