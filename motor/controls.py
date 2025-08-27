@@ -7,7 +7,7 @@ import threading
 class Controls:
     kit = MotorKit()
     thread = None
-
+    keep_going = True
     def __init__(self):
         self.name = "motor"
 
@@ -16,6 +16,7 @@ class Controls:
         self.thread.start()
 
     def stop(self):
+        self.keep_going = False
         if self.thread is not None:
             self.thread.join()
 
@@ -37,13 +38,9 @@ class Controls:
             self.stop_motor()
 
     def forward(self, duration: int):
-        if duration is None:
+        while(self.keep_going):
             self.kit.motor1.throttle = -1
             self.kit.motor2.throttle = -1
-        else:
-            self.kit.motor1.throttle = -1
-            self.kit.motor2.throttle = -1
-        time.sleep(1000)
 
     def backward(self, duration: int):
         if duration is None:

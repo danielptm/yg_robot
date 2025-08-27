@@ -19,9 +19,10 @@ while char != 'c':
     print("prev: " + prev)
     print("char: " + char)
     char = input("Input: ")
-    if char != prev:
-        if controls is not None:
-            controls.stop()
+
+    if controls is not None:
+        print("stopping")
+        controls.stop()
     print("creating controls")
     controls = Controls()
 
