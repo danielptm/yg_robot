@@ -24,6 +24,7 @@ while char != 'c':
         controls.stop()
     print("creating controls")
     controls = Controls(char)
+    controls.start_motor()
     print("set prev to char")
     prev = char
     print("end of loops")
