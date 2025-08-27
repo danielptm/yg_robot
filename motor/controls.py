@@ -17,8 +17,6 @@ class Controls:
 
     def stop(self):
         self.keep_going = False
-        if self.thread is not None:
-            self.thread.join()
 
 
     def call(self, char):
@@ -44,37 +42,32 @@ class Controls:
             self.kit.motor2.throttle = -1
 
     def backward(self, duration: int):
-        if duration is None:
+        while self.keep_going:
             self.kit.motor1.throttle = 1
             self.kit.motor2.throttle = 1
-        else:
-            self.kit.motor1.throttle = 1
-            self.kit.motor2.throttle = 1
-        time.sleep(1000)
 
     def stop_motor(self):
         self.kit.motor1.throttle = 0
         self.kit.motor2.throttle = 0
-        time.sleep(1000)
 
     def hard_right_90(self):
-        self.kit.motor1.throttle = 1
-        self.kit.motor2.throttle = -1
-        time.sleep(1000)
+        while self.keep_going:
+            self.kit.motor1.throttle = 1
+            self.kit.motor2.throttle = -1
 
     def hard_left_90(self):
-        self.kit.motor1.throttle = -1
-        self.kit.motor2.throttle = 1
-        time.sleep(1000)
+        while self.keep_going:
+            self.kit.motor1.throttle = -1
+            self.kit.motor2.throttle = 1
 
     def soft_right(self):
-        self.kit.motor1.throttle = 0.5
-        self.kit.motor2.throttle = -0.75
-        time.sleep(1000)
+        while self.keep_going:
+            self.kit.motor1.throttle = 0.5
+            self.kit.motor2.throttle = -0.75
 
     def soft_left(self):
-        self.kit.motor1.throttle = -0.75
-        self.kit.motor2.throttle = 0.5
-        time.sleep(1000)
+        while self.keep_going:
+            self.kit.motor1.throttle = -0.75
+            self.kit.motor2.throttle = 0.5
 
 
