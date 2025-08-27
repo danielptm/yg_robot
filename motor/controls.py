@@ -39,8 +39,8 @@ class Controls:
 
     def backward(self, duration: int):
         while self.keep_going:
-            self.kit.motor1.throttle = 0.5
-            self.kit.motor2.throttle = 0.5
+            self.kit.motor1.throttle = 0.65
+            self.kit.motor2.throttle = 0.65
 
     def stop_motor(self):
         self.kit.motor1.throttle = 0
@@ -48,13 +48,13 @@ class Controls:
 
     def right(self):
         while self.keep_going:
-            self.kit.motor1.throttle = 0.75
-            self.kit.motor2.throttle = -0.75
+            self.kit.motor1.throttle = 0.65
+            self.kit.motor2.throttle = -0.65
 
     def left(self):
         while self.keep_going:
-            self.kit.motor1.throttle = -0.75
-            self.kit.motor2.throttle = 0.75
+            self.kit.motor1.throttle = -0.65
+            self.kit.motor2.throttle = 0.65
 
 
 
