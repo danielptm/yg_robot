@@ -2,24 +2,23 @@
 from adafruit_motorkit import MotorKit
 import time
 import threading
-from pubsub import pub
 
 
-class Controls(threading.Thread):
+class Controls:
     kit = MotorKit()
+    thread = None
 
     def __init__(self):
-        threading.Thread.__init__(self)
         self.name = "motor"
 
-    def listener(self, arg1, arg2):
-        self.call(arg1)
+    def listener(self, char):
+        self.thread = threading.Thread(target=self.call, args=char)
+        self.thread.start()
 
-    def pub(self, arg1):
-        print("subscribing")
-        pub.subscribe(self.listener, "motor_topic")
-        print("send message")
-        pub.sendMessage("motor_topic", arg1=arg1, arg2=None)
+    def stop(self):
+        if self.thread is not None:
+            self.thread.join()
+
 
     def call(self, char):
         if char == 'f':

@@ -1,5 +1,6 @@
 
 from motor.controls import Controls
+from pubsub import pub
 
 print("Starting user input mode...")
 
@@ -19,13 +20,14 @@ while char != 'c':
     char = input("Input: ")
     if char != prev:
         if controls is not None:
-            if controls.is_alive():
-                stop()
+            controls.stop()
     print("creating controls")
     controls = Controls()
-    print("starting")
-    controls.start()
-    controls.pub(char)
+
+    print("subscribing")
+    pub.subscribe(controls.listener, "motor_topic")
+    print("send message")
+    pub.sendMessage("motor_topic", arg1=char, arg2=None)
     print("set prev to char")
     prev = char
     print("end of loops")
