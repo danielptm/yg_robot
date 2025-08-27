@@ -25,13 +25,9 @@ class Controls:
         if char == 'b':
             self.backward(None)
         if char == 'r':
-            self.hard_right_90()
+            self.right()
         if char == "l":
-            self.hard_left_90()
-        if char == "sl":
-            self.soft_left()
-        if char == "sr":
-            self.soft_right()
+            self.left()
         else:
             self.keep_going = False
             self.stop_motor()
