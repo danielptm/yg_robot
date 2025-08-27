@@ -11,8 +11,8 @@ class Controls:
     def __init__(self):
         self.name = "motor"
 
-    def listener(self, char):
-        self.thread = threading.Thread(target=self.call, args=char)
+    def listener(self, data):
+        self.thread = threading.Thread(target=self.call, args=data)
         self.thread.start()
 
     def stop(self):

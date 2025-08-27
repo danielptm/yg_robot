@@ -27,11 +27,11 @@ while char != 'c':
     print("subscribing")
     pub.subscribe(controls.listener, "motor_topic")
     print("send message")
-    pub.sendMessage("motor_topic", arg1=char, arg2=None)
+    pub.sendMessage("motor_topic", data=char)
     print("set prev to char")
     prev = char
     print("end of loops")
 
-stop()
+controls.stop()
 
 
