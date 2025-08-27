@@ -48,13 +48,13 @@ class Controls:
 
     def right(self):
         while self.keep_going:
-            self.kit.motor1.throttle = 0.5
-            self.kit.motor2.throttle = -0.5
+            self.kit.motor1.throttle = 0.75
+            self.kit.motor2.throttle = -0.75
 
     def left(self):
         while self.keep_going:
-            self.kit.motor1.throttle = -0.5
-            self.kit.motor2.throttle = 0.5
+            self.kit.motor1.throttle = -0.75
+            self.kit.motor2.throttle = 0.75
 
 
 
