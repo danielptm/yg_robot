@@ -93,6 +93,7 @@ class Controls:
         print("Setting servo 0 to 90 degrees...")
         self.servo.servo[0].angle = 90
         time.sleep(2)  # Wait for 2 seconds
+        return
 
         # --- Continuous Rotation Servo Control ---
         # Set continuous servo 1 to full speed forward
