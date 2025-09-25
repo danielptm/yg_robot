@@ -90,20 +90,24 @@ class Controls:
         self.servo.servo[0].angle = 0
         time.sleep(2)  # Wait for 2 seconds
 
+        print("Setting servo 0 to 90 degrees...")
+        self.servo.servo[0].angle = 90
+        time.sleep(2)  # Wait for 2 seconds
+
         # --- Continuous Rotation Servo Control ---
         # Set continuous servo 1 to full speed forward
-        print("Setting continuous servo 1 to full speed...")
-        self.servo.continuous_servo[1].throttle = 1.0
-        time.sleep(2)  # Run for 2 seconds
-
-        # Set continuous servo 1 to full speed backward
-        print("Setting continuous servo 1 to full speed backward...")
-        self.servo.continuous_servo[1].throttle = -1.0
-        time.sleep(2)  # Run for 2 seconds
-
-        # Stop continuous servo 1
-        print("Stopping continuous servo 1...")
-        self.servo.continuous_servo[1].throttle = 0.0
+        # print("Setting continuous servo 1 to full speed...")
+        # self.servo.continuous_servo[1].throttle = 1.0
+        # time.sleep(2)  # Run for 2 seconds
+        #
+        # # Set continuous servo 1 to full speed backward
+        # print("Setting continuous servo 1 to full speed backward...")
+        # self.servo.continuous_servo[1].throttle = -1.0
+        # time.sleep(2)  # Run for 2 seconds
+        #
+        # # Stop continuous servo 1
+        # print("Stopping continuous servo 1...")
+        # self.servo.continuous_servo[1].throttle = 0.0
 
 
 
