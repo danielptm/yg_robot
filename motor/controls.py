@@ -1,18 +1,17 @@
 
 import time
-import board
-import pwmio
+
 
 from adafruit_motorkit import MotorKit
-from adafruit_motor import servo
+from adafruit_servokit import ServoKit
 
 import threading
 
 
 class Controls:
     kit = MotorKit()
-    pwm = pwmio.PWMOut(board.D5, duty_cycle=0, frequency=50)
-    my_servo = servo.Servo(pwm, min_pulse=1000, max_pulse=2000)
+    kit = ServoKit(channels=16)
+
 
     thread = None
     keep_going = True
@@ -78,11 +77,33 @@ class Controls:
             self.kit.motor4.throttle = 0.65
 
     def up(self):
-        while True:
-            print("Sweeping from 0 to 180 degrees...")
-            for angle in range(0, 181, 5):  # Move from 0 to 180 in 5-degree increments
-                self.my_servo.angle = angle
-                time.sleep(0.05)  # Small delay for smooth movement
+        self.kit = ServoKit(channels=16)
+
+        # --- Standard Servo Control ---
+        # Set servo 0 to 90 degrees
+        print("Setting servo 0 to 90 degrees...")
+        self.kit.servo[0].angle = 90
+        time.sleep(2)  # Wait for 2 seconds
+
+        # Set servo 0 to 0 degrees
+        print("Setting servo 0 to 0 degrees...")
+        self.kit.servo[0].angle = 0
+        time.sleep(2)  # Wait for 2 seconds
+
+        # --- Continuous Rotation Servo Control ---
+        # Set continuous servo 1 to full speed forward
+        print("Setting continuous servo 1 to full speed...")
+        self.kit.continuous_servo[1].throttle = 1.0
+        time.sleep(2)  # Run for 2 seconds
+
+        # Set continuous servo 1 to full speed backward
+        print("Setting continuous servo 1 to full speed backward...")
+        self.kit.continuous_servo[1].throttle = -1.0
+        time.sleep(2)  # Run for 2 seconds
+
+        # Stop continuous servo 1
+        print("Stopping continuous servo 1...")
+        self.kit.continuous_servo[1].throttle = 0.0
 
 
 
