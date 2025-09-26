@@ -12,7 +12,7 @@ servo = ServoControls(0)
 prev = ''
 char = ''
 while char != 'c':
-    controls = MotorControls()
+    controls = MotorControls('s')
     controls.stop()
     print("starting..")
     print("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
