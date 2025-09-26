@@ -27,7 +27,7 @@ while char != 'c':
         controls.start_motor()
     else:
         servo = ServoControls()
-        servo.right(10, 0)
+        servo.right(180, 0)
     print("set prev to char")
     prev = char
     print("end of loops")
