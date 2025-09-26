@@ -1,11 +1,13 @@
 
-from motor.controls import Controls
+from motor.controls import Controls as MotorControls
+from servo.controls import Control as ServoControls
 
 def stop():
     controls.stop_motor()
     controls.join()
 
-controls: Controls = None
+controls: MotorControls = None
+servo: ServoControls = None
 
 prev = ''
 char = ''
@@ -20,8 +22,12 @@ while char != 'c':
         print("stopping")
         controls.stop()
     print("creating controls")
-    controls = Controls(char)
-    controls.start_motor()
+    if char != 'f':
+        controls = MotorControls(char)
+        controls.start_motor()
+    else:
+        servo = ServoControls()
+        servo.forward(10, 0)
     print("set prev to char")
     prev = char
     print("end of loops")

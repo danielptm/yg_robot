@@ -1,5 +1,4 @@
 
-import time
 
 
 from adafruit_motorkit import MotorKit
@@ -10,7 +9,6 @@ import threading
 
 class Controls:
     kit = MotorKit()
-    servo = ServoKit(channels=16)
 
 
     thread = None
@@ -36,11 +34,10 @@ class Controls:
             self.right()
         if char == "l":
             self.left()
-        if char == "u":
-            self.up()
         else:
             self.keep_going = False
             self.stop_motor()
+
 
     def forward(self, duration: int):
         while self.keep_going:
@@ -76,24 +73,7 @@ class Controls:
             self.kit.motor3.throttle = -0.65
             self.kit.motor4.throttle = 0.65
 
-    def up(self):
-        self.servo = ServoKit(channels=16)
 
-        # --- Standard Servo Control ---
-        # Set servo 0 to 90 degrees
-        print("Setting servo 0 to 90 degrees...")
-        self.servo.servo[0].angle = 90
-        time.sleep(2)  # Wait for 2 seconds
-
-        # Set servo 0 to 0 degrees
-        print("Setting servo 0 to 0 degrees...")
-        self.servo.servo[0].angle = 0
-        time.sleep(2)  # Wait for 2 seconds
-
-        print("Setting servo 0 to 90 degrees...")
-        self.servo.servo[0].angle = 90
-        time.sleep(2)  # Wait for 2 seconds
-        return
 
         # --- Continuous Rotation Servo Control ---
         # Set continuous servo 1 to full speed forward
