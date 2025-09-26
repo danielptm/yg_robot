@@ -6,14 +6,30 @@ import time
 class Control:
     servo = ServoKit(channels=16)
 
+    angle = 110
+
     def forward(self, servo):
-        # self.servo.servo[0].set_pulse_width_range(0, 180)
-        self.servo.servo[servo].angle = 110
+        self.angle = 110
+        self.servo.servo[servo].angle = self.angle
 
     def right(self, servo: Number):
         # --- Standard Servo Control ---
         # Set servo 0 to 90 degrees
-        self.servo.servo[servo].angle = 0
+        self.angle = 0
+        self.servo.servo[servo].angle = self.angle
 
     def left(self, servo: Number):
-        self.servo.servo[servo].angle = 180
+        for i in range(180):
+            self.angle += 1
+            self.servo.servo[servo].angle = self.angle
+            if self.angle > 180:
+                self.angle = 180
+                break
+
+    def right(self, servo: Number):
+        for i in range(180):
+            self.angle -= 1
+            self.servo.servo[servo].angle = self.angle
+            if self.angle < 0:
+                self.angle = 0
+                break
