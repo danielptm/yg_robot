@@ -1,6 +1,6 @@
 
 from motor.controls import Controls as MotorControls
-from servo.controls import Control as ServoControls
+from servo.controls import Controls as ServoControls
 
 def stop():
     controls.stop_motor()
@@ -29,11 +29,19 @@ while char != 'c':
         if char == 'servo_f':
             servo = ServoControls()
             servo.forward( 0)
-        elif char == 'servo_r':
+        elif char == 'servo_full_r':
             servo = ServoControls()
-            servo.right(0)
-        elif char == 'servo_l':
-            servo.left(0)
+            servo.full_right()
+        elif char == 'servo_full_l':
+            servo.full_left()
+        elif char == 'servo_peek_l':
+            servo.peek_left()
+        elif char == 'servo_peek_r':
+            servo.peek_right()
+        elif char == 'servo_scan':
+            servo.scan()
+        elif char == 'servo_stop':
+            servo.stop_scan()
 
     print("set prev to char")
     prev = char
