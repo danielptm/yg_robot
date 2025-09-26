@@ -48,6 +48,7 @@ class Controls:
     def scan(self):
         self.is_scanning = True
         while self.is_scanning:
+            time.sleep(0.5)
             if self.scan_dir == 'r' and self.is_scanning:
                 if self.angle > 3:
                     self.scan_dir = 'r'
