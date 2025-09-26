@@ -38,17 +38,17 @@ class Controls:
             self.kit.servo[self.servo_index].angle = self.angle
 
     def peek_right(self):
-        self.angle = self.angle - 2
+        self.angle = self.angle - 1
         self.kit.servo[self.servo_index].angle = self.angle
 
     def peek_left(self):
-        self.angle = self.angle + 2
+        self.angle = self.angle + 1
         self.kit.servo[self.servo_index].angle = self.angle
 
     def scan(self):
         self.is_scanning = True
         while self.is_scanning:
-            time.sleep(0.5)
+            time.sleep(0.025)
             if self.scan_dir == 'r' and self.is_scanning:
                 if self.angle > 3:
                     self.scan_dir = 'r'
