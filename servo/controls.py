@@ -20,7 +20,7 @@ class Control:
 
     def left(self, servo: Number):
         for i in range(180):
-            self.angle += 1
+            self.angle += 2
             time.sleep(0.05)
             if self.angle > 180:
                 self.angle = 180
@@ -30,7 +30,7 @@ class Control:
 
     def right(self, servo: Number):
         for i in range(180):
-            self.angle -= 1
+            self.angle -= 2
             time.sleep(0.05)
             if self.angle < 0:
                 self.angle = 0
