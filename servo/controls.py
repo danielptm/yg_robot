@@ -22,8 +22,8 @@ class Controls:
             print(self.angle)
             self.angle += 2
             time.sleep(0.05)
-            if self.angle > 180:
-                self.angle = 180
+            if self.angle > 178:
+                self.angle = 178
                 break
             self.kit.servo[self.servo_index].angle = self.angle
 
