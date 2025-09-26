@@ -22,15 +22,19 @@ while char != 'c':
         print("stopping")
         controls.stop()
     print("creating controls")
-    if char != 'sr' or char != "sl":
+    if 'servo' not in char:
         controls = MotorControls(char)
         controls.start_motor()
-    elif char == 'sr':
-        servo = ServoControls()
-        servo.right(180, 0)
-    elif char == 'sl':
-        servo = ServoControls()
-        servo.right(180, 0)
+    else:
+        if char == 'servo_f':
+            servo = ServoControls()
+            servo.forward( 0)
+        elif char == 'servo_r':
+            servo = ServoControls()
+            servo.right(0)
+        elif char == 'servo_l':
+            servo = ServoControls()
+            servo.left(0)
 
     print("set prev to char")
     prev = char
