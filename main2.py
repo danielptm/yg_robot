@@ -25,11 +25,10 @@ while char != 'c':
         controls = MotorControls()
         controls.start_motor(char)
     else:
+        servo = ServoControls(0)
         if char == 'servo_f':
-            servo = ServoControls()
-            servo.forward( 0)
+            servo.forward()
         elif char == 'servo_full_r':
-            servo = ServoControls()
             servo.full_right()
         elif char == 'servo_full_l':
             servo.full_left()
