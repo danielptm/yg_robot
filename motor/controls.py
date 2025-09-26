@@ -2,7 +2,6 @@
 
 
 from adafruit_motorkit import MotorKit
-from adafruit_servokit import ServoKit
 
 
 
@@ -10,11 +9,10 @@ class Controls:
     kit = MotorKit()
 
     keep_going = True
-    def __init__(self, char):
+    def __init__(self):
         self.name = "motor"
-        self.char = char
 
-    def start_motor(self):
+    def start_motor(self, char):
         self.call(self.char)
 
     def stop(self):
