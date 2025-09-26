@@ -19,6 +19,7 @@ class Controls:
 
     def stop(self):
         self.keep_going = False
+        self.stop_motor()
 
 
     def call(self, char):
