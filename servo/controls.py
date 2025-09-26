@@ -7,12 +7,12 @@ class Control:
     servo = ServoKit(channels=16)
 
     def forward(self, servo):
-        self.servo.servo[servo].angle = 90
+        self.servo.servo[servo].angle = 100
 
     def right(self, servo: Number):
         # --- Standard Servo Control ---
         # Set servo 0 to 90 degrees
-        self.servo.servo[servo].angle = 180
+        self.servo.servo[servo].angle = 0
 
     def left(self, servo: Number):
-        self.servo.servo[servo].angle = 0
+        self.servo.servo[servo].angle = 180
