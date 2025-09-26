@@ -21,15 +21,16 @@ class Control:
     def left(self, servo: Number):
         for i in range(180):
             self.angle += 1
-            self.servo.servo[servo].angle = self.angle
             if self.angle > 180:
                 self.angle = 180
                 break
+            self.servo.servo[servo].angle = self.angle
+
 
     def right(self, servo: Number):
         for i in range(180):
             self.angle -= 1
-            self.servo.servo[servo].angle = self.angle
             if self.angle < 0:
                 self.angle = 0
                 break
+            self.servo.servo[servo].angle = self.angle
