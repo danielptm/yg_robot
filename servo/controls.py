@@ -6,10 +6,10 @@ import time
 class Control:
     servo = ServoKit(channels=16)
 
-    def forward(self, degrees: Number, servo: Number):
+    def right(self, degrees: Number, servo: Number):
         # --- Standard Servo Control ---
         # Set servo 0 to 90 degrees
         for i in range(degrees):
             print("Setting servo 0 to 90 degrees...")
-            self.servo.servo[servo].angle = i
+            self.servo.servo[servo].angle = i * -1
             time.sleep(0.1)  # Wait for 2 seconds
