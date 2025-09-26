@@ -7,7 +7,7 @@ def stop():
     controls.join()
 
 controls: MotorControls = None
-servo: ServoControls = None
+servo = ServoControls()
 
 prev = ''
 char = ''
@@ -33,7 +33,6 @@ while char != 'c':
             servo = ServoControls()
             servo.right(0)
         elif char == 'servo_l':
-            servo = ServoControls()
             servo.left(0)
 
     print("set prev to char")
