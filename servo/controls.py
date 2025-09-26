@@ -49,13 +49,13 @@ class Controls:
         self.is_scanning = True
         while self.is_scanning:
             if self.scan_dir == 'r' and self.is_scanning:
-                if self.angle > 1:
+                if self.angle > 3:
                     self.scan_dir = 'r'
                     self.peek_right();
                 else:
                     self.scan_dir = 'l'
             else:
-                if self.is_scanning and self.angle <179:
+                if self.is_scanning and self.angle <177:
                     self.scan_dir = 'l'
                     self.peek_left()
                 else:
