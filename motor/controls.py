@@ -4,22 +4,18 @@
 from adafruit_motorkit import MotorKit
 from adafruit_servokit import ServoKit
 
-import threading
 
 
 class Controls:
     kit = MotorKit()
 
-
-    thread = None
     keep_going = True
     def __init__(self, char):
         self.name = "motor"
         self.char = char
 
     def start_motor(self):
-        self.thread = threading.Thread(target=self.call, args=self.char)
-        self.thread.start()
+        self.call(self.char)
 
     def stop(self):
         self.keep_going = False
