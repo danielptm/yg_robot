@@ -10,6 +10,5 @@ class Control:
         # --- Standard Servo Control ---
         # Set servo 0 to 90 degrees
         for i in range(degrees):
-            print("Setting servo 0 to 90 degrees...")
             self.servo.servo[servo].angle = i
-            time.sleep(0.1)  # Wait for 2 seconds
+            time.sleep(0.025)  # Wait for 2 seconds
