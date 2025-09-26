@@ -6,14 +6,13 @@ def stop():
     controls.stop_motor()
     controls.join()
 
-controls: MotorControls = None
+
+controls = MotorControls()
 servo = ServoControls(0)
 
 prev = ''
 char = ''
 while char != 'c':
-    controls = MotorControls()
-    servo = ServoControls(0)
     controls.stop()
     print("starting..")
     print("f:forward, b:backward, r:right, l:left,s:stop ... c:cancel program")
