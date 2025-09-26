@@ -7,7 +7,7 @@ def stop():
     controls.join()
 
 controls: MotorControls = None
-servo = ServoControls()
+servo = ServoControls(0)
 
 prev = ''
 char = ''
