@@ -11,6 +11,7 @@ class Controls:
         self.forward()
         self.is_scanning = False
         self.scan_dir = 'r'
+        self.angle = 110
 
     def forward(self):
         self.angle = 110
