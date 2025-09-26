@@ -22,7 +22,7 @@ while char != 'c':
         print("stopping")
         controls.stop()
     print("creating controls")
-    if char != 'f':
+    if char != 'sf':
         controls = MotorControls(char)
         controls.start_motor()
     else:
