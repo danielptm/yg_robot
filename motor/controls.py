@@ -13,7 +13,7 @@ class Controls:
         self.name = "motor"
 
     def start_motor(self, char):
-        self.call(self.char)
+        self.call(char)
 
     def stop(self):
         self.keep_going = False

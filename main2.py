@@ -2,9 +2,6 @@
 from motor.controls import Controls as MotorControls
 from servo.controls import Controls as ServoControls
 
-def stop():
-    controls.stop_motor()
-    controls.join()
 
 
 controls = MotorControls()
